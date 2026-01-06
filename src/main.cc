@@ -10,33 +10,33 @@
 #include "search.h"
 #include "check_parameters.h"
 
+#include <fstream>
 #include <iostream>
 
 int main(int argc, const char** argv) {
   CheckParameters(argc, argv);
 
-  std::string input_filename = argv[1];
-  int algorithm = std::stoi(argv[2]);
-  int start_node = std::stoi(argv[3]);
-  int end_node = std::stoi(argv[4]);
+  std::ofstream output_file(argv[2]);
 
-  std::cout << "--- Configuration ---\n";
-  std::cout << "Input File: " << input_filename << "\n";
-  std::cout << "Algorithm:  " << (algorithm == 0 ? "DFS" : "BFS") << "\n";
-  std::cout << "Start Node: " << start_node << "\n";
-  std::cout << "End Node:   " << end_node << "\n";
-  std::cout << "---------------------\n";
+  std::string input_filename = argv[1];
+  int algorithm = std::stoi(argv[3]);
+  int start_node = std::stoi(argv[4]);
+  int end_node = std::stoi(argv[5]);
+
+  std::streambuf* cout_buf = std::cout.rdbuf();
+  std::cout.rdbuf(output_file.rdbuf());
 
   Graph graph;
 
   if (!graph.LoadFromFile(input_filename)) {
     return 1;
   }
-
-  std::cout << graph << std::endl;
-
+  
   Search search(graph, start_node - 1, end_node - 1);
-  bool found = search.Run(algorithm);
+  search.PrintProblemInfo();
+  search.Run(algorithm);
 
-  return found ? 0 : 1;
+  std::cout.rdbuf(cout_buf);
+
+  return 0;
 }

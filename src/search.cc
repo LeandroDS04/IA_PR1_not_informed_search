@@ -26,6 +26,27 @@ void PrintVector(const std::vector<int>& v) {
   std::cout << "\n";
 }
 
+void Search::PrintProblemInfo() const {
+  int num_nodes = graph_.GetNumNodes();
+  int num_edges = 0;
+  for (int i = 0; i < num_nodes; ++i) {
+      // CAMBIO AQUÍ: j empieza en i + 1
+      // Esto evita comparar (0,0) y evita contar (1,0) si ya contaste (0,1)
+      for (int j = i + 1; j < num_nodes; ++j) {
+          
+          // Asumiendo que -1.0 es "no hay camino"
+          if (graph_.GetEdgeCost(i, j) != -1.0) {
+              num_edges++;
+          }
+      }
+  }
+  std::cout << "Número de nodos del grafo: " << num_nodes << "\n";
+  std::cout << "Número de aristas del grafo: " << num_edges << "\n";
+  std::cout << "Vértice origen: " << (start_node_ + 1) << "\n";
+  std::cout << "Vértice destino: " << (end_node_ + 1) << "\n";
+  std::cout << "--------------------------------------------------\n";
+}
+
 bool Search::Run(int algorithm_type) {
   return (algorithm_type == 1) ? BFS() : DFS();
 }
@@ -35,20 +56,15 @@ bool Search::BFS() {
   std::vector<int> generated_history;  
   std::vector<int> inspected_history; 
 
-  // 1. Inicialización
   Node start(start_node_, -1, 0.0);
   frontier.push_back(start);
-  
-  // Añadimos el nodo inicial al histórico de generados
   generated_history.push_back(start_node_ + 1);
 
   std::vector<Node> closed_list(graph_.GetNumNodes(), Node(-1, -2, 0.0));
   closed_list[start_node_] = start; 
 
   int iteration = 1;
-
   while (!frontier.empty()) {
-    // --- PASO 1: IMPRIMIR ESTADO ACTUAL (Antes de procesar) ---
     std::cout << "Iteracion " << iteration++ << "\n";
     std::cout << "Nodos generados: ";
     PrintVector(generated_history);
@@ -56,7 +72,6 @@ bool Search::BFS() {
     PrintVector(inspected_history);
     std::cout << "--------------------------------------------------\n";
 
-    // --- PASO 2: INSPECCIONAR (Sacar de la cola) ---
     Node current = frontier.front();
     frontier.pop_front();
     inspected_history.push_back(current.id + 1);
@@ -66,22 +81,16 @@ bool Search::BFS() {
       return true;
     }
 
-    // --- PASO 3: GENERAR (Expandir hijos) ---
     int num_nodes = graph_.GetNumNodes();
-    bool new_nodes_generated = false;
 
     for (int i = 0; i < num_nodes; ++i) {
       double weight = graph_.GetEdgeCost(current.id, i);
       
-      // Si hay arista y no visitado
       if (weight != -1.0 && closed_list[i].father == -2) {
         Node neighbor(i, current.id, current.cost_g + weight);
-        
-        closed_list[i] = neighbor;     // Marcar visitado
-        frontier.push_back(neighbor);  // Meter en cola
-        
-        generated_history.push_back(i + 1); // Añadir al histórico visual
-        new_nodes_generated = true;
+        closed_list[i] = neighbor;     
+        frontier.push_back(neighbor);  
+        generated_history.push_back(i + 1); 
       }
     }
   }
@@ -186,9 +195,10 @@ void Search::PrintPath(const std::vector<Node>& closed_list) const {
 
   std::reverse(path.begin(), path.end());
 
-  std::cout << "\nCamino: ";
+  std::cout << "Camino: ";
   for (size_t i = 0; i < path.size(); ++i) {
     std::cout << (path[i] + 1) << (i < path.size() - 1 ? " - " : "");
   }
+  std::cout << "\n--------------------------------------------------";
   std::cout << "\nCosto: " << std::fixed << std::setprecision(2) << total_cost << std::endl;
 }

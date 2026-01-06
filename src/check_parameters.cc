@@ -16,7 +16,7 @@
 void CheckParameters(const int argc, const char** argv) {
   if (argc < 2) {
     std::cerr <<  "$ ./pr1_IA_lds\n"
-                  "How to use it: ./pr1_IA_lds filein.txt <algorithm> <node_begin> <node_objetive>\n"
+                  "How to use it: ./pr1_IA_lds filein.txt fileout.txt <algorithm> <node_begin> <node_objetive>\n"
                   "Try ./pr1_IA_lds --help for more information.\n";
     std::exit(1);
   }
@@ -25,9 +25,9 @@ void CheckParameters(const int argc, const char** argv) {
     std::cout << kHelpMessage;
     std::exit(0);
   }
-  if (argc > 5) {
+  if (argc > 6) {
     std::cerr <<  "$ ./pr1_IA_lds\n"
-                  "How to use it: ./pr1_IA_lds filein.txt <algorithm> <node_begin> <node_objetive>\n"
+                  "How to use it: ./pr1_IA_lds filein.txt fileout.txt <algorithm> <node_begin> <node_objetive>\n"
                   "Try ./pr1_IA_lds --help for more information.\n";
     std::exit(1);
   }

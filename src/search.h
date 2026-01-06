@@ -10,6 +10,7 @@ class Search {
   public:
     Search(const Graph& graph, int start_node, int end_node);
     bool Run(int algorithm_type);
+    void PrintProblemInfo() const;
 
   private:
     const Graph& graph_;

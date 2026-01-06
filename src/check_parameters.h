@@ -15,8 +15,9 @@
 #include <string>
 
 const std::string kHelpMessage =
-  "./pr1_IA_lds [--help] filein.txt <algorithm> <node_begin> <node_objetive>\n"
+  "./pr1_IA_lds [--help] filein.txt fileout.txt <algorithm> <node_begin> <node_objetive>\n"
   "  - input_file: The file where the data is taken from\n"
+  "  - output_file: The file where the results are written\n"
   "  - Algorithm: 0 for DFS, 1 for BFS\n"
   "  - Begin: The node where the search starts\n"
   "  - Objetive: The node where the search ends\n";

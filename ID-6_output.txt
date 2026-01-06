@@ -1,0 +1,52 @@
+Número de nodos del grafo: 15
+Número de aristas del grafo: 21
+Vértice origen: 3
+Vértice destino: 10
+--------------------------------------------------
+Iteracion 1
+Nodos generados: 3
+Nodos inspeccionados: -
+--------------------------------------------------
+Iteracion 2
+Nodos generados: 3, 8
+Nodos inspeccionados: 3
+--------------------------------------------------
+Iteracion 3
+Nodos generados: 3, 8, 2, 15
+Nodos inspeccionados: 3, 8
+--------------------------------------------------
+Iteracion 4
+Nodos generados: 3, 8, 2, 15, 5, 7
+Nodos inspeccionados: 3, 8, 2
+--------------------------------------------------
+Iteracion 5
+Nodos generados: 3, 8, 2, 15, 5, 7
+Nodos inspeccionados: 3, 8, 2, 15
+--------------------------------------------------
+Iteracion 6
+Nodos generados: 3, 8, 2, 15, 5, 7, 4, 6
+Nodos inspeccionados: 3, 8, 2, 15, 5
+--------------------------------------------------
+Iteracion 7
+Nodos generados: 3, 8, 2, 15, 5, 7, 4, 6, 11, 14
+Nodos inspeccionados: 3, 8, 2, 15, 5, 7
+--------------------------------------------------
+Iteracion 8
+Nodos generados: 3, 8, 2, 15, 5, 7, 4, 6, 11, 14
+Nodos inspeccionados: 3, 8, 2, 15, 5, 7, 4
+--------------------------------------------------
+Iteracion 9
+Nodos generados: 3, 8, 2, 15, 5, 7, 4, 6, 11, 14
+Nodos inspeccionados: 3, 8, 2, 15, 5, 7, 4, 6
+--------------------------------------------------
+Iteracion 10
+Nodos generados: 3, 8, 2, 15, 5, 7, 4, 6, 11, 14
+Nodos inspeccionados: 3, 8, 2, 15, 5, 7, 4, 6, 11
+--------------------------------------------------
+Iteracion 11
+Nodos generados: 3, 8, 2, 15, 5, 7, 4, 6, 11, 14, 10
+Nodos inspeccionados: 3, 8, 2, 15, 5, 7, 4, 6, 11, 14
+--------------------------------------------------
+Camino: 3 - 8 - 2 - 7 - 14 - 10
+--------------------------------------------------
+Costo: 21.00
