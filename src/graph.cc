@@ -34,6 +34,13 @@ int Graph::GetNumNodes() const {
   return nodes_;
 }
 
+double Graph::GetEdgeCost(int node_a, int node_b) const {
+  if (node_a < 0 || node_a >= nodes_ || node_b < 0 || node_b >= nodes_) {
+    return -1.0;
+  }
+  return adj_matrix_[node_a][node_b];
+}
+
 bool Graph::LoadFromFile(const std::string& filename) {
   std::ifstream file(filename);
   if (!file.is_open()) {

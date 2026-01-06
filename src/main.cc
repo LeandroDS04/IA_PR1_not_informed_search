@@ -35,5 +35,8 @@ int main(int argc, const char** argv) {
 
   std::cout << graph << std::endl;
 
-  return 0;
+  Search search(graph, start_node - 1, end_node - 1);
+  bool found = search.Run(algorithm);
+
+  return found ? 0 : 1;
 }
