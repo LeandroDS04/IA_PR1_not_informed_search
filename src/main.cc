@@ -6,7 +6,6 @@
 */
 
 #include "graph.h"
-#include "logger.h"
 #include "search.h"
 #include "check_parameters.h"
 

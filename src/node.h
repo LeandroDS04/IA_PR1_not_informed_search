@@ -1,9 +1,12 @@
 /*
   Name: Leandro Delli Santi
-  Date: 06/01/2026
+  Grade: 3rd Year
   mail: alu0101584003@ull.edu.es
-  Description: Node structure definition
-  file: node.h
+  Subject: IA (Artificial Inteligence)
+  School: ESIT (Escuela Superior de Ingenieria y Tecnología)
+  Theme of the practice: Not informed searching
+  Date: 06/01/2026
+  File: node.h - declaration of the Node struct.
 */
 
 #ifndef NODE_H

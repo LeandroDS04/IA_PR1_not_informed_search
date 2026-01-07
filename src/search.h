@@ -1,3 +1,14 @@
+/*
+  Name: Leandro Delli Santi
+  Grade: 3rd Year
+  mail: alu0101584003@ull.edu.es
+  Subject: IA (Artificial Inteligence)
+  School: ESIT (Escuela Superior de Ingenieria y Tecnología)
+  Theme of the practice: Not informed searching
+  Date: 06/01/2026
+  File: search.h - declaration of the Search class.
+*/
+
 #ifndef SEARCH_H
 #define SEARCH_H
 

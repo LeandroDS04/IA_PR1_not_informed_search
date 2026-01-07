@@ -1,9 +1,12 @@
 /*
   Name: Leandro Delli Santi
-  Date: 06/01/2026
+  Grade: 3rd Year
   mail: alu0101584003@ull.edu.es
-  Description: Graph class definition
-  file: graph.h
+  Subject: IA (Artificial Inteligence)
+  School: ESIT (Escuela Superior de Ingenieria y Tecnología)
+  Theme of the practice: Not informed searching
+  Date: 06/01/2026
+  File: graph.h - declaration of the Graph class.
 */
 
 #ifndef GRAPH_H
